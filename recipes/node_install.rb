@@ -1,21 +1,24 @@
-# select prefix by os
+# version should be 0.10, 0.12, 4.x, 5.x
+version = node['nodejs-setup']['version']
+prefix = 'https://deb.nodesource.com/setup_'
+
+# select prefix by platform
 case node['flatform_family']
 when 'debian'
   log 'prefix with debian'
-  node['nodejs-setup']['prefix'] = 'https://deb.nodesource.com/setup_'
+  prefix = 'https://deb.nodesource.com/setup_'
 when 'fedora', 'rhel'
   log 'prefix with rhel'
-  node['nodejs-setup']['prefix'] = 'https://rpm.nodesource.com/setup_'
+  prefix = 'https://rpm.nodesource.com/setup_'
 else
   log 'prefix with others'
-  node['nodejs-setup']['prefix'] = nil
+  prefix = nil
 end
 
-# version should be 0.10, 0.12, 4.x, 5.x
-prefix = node['nodejs-setup']['prefix']
-version = node['nodejs-setup']['version']
+# make install url
 install_url = [prefix, version].join('')
 
+# install by platform
 case node['platform_family']
 when 'fedora', 'rhel'
   log 'Installing node with fedora'
