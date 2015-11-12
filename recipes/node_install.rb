@@ -5,6 +5,8 @@ install_url = [prefix, version].join('')
 
 log 'Installing node #{prefix} : #{version}'
 
+log.info 'Installing node #{prefix} : #{version}'
+
 case node['platform_family']
 when 'fedora', 'rhel'
   log 'Installing node with fedora'
