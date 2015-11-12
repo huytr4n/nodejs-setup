@@ -3,8 +3,9 @@ prefix = node['nodejs-setup']['prefix']
 version = node['nodejs-setup']['version']
 install_url = [prefix, version].join('')
 
-log 'Installing node #{install_url}'
-log install_url
+log 'Installing node'
+log prefix
+log version
 
 case node['platform_family']
 when 'fedora', 'rhel'
