@@ -3,19 +3,7 @@ nodejs-setup CHANGELOG
 
 This file is used to list changes made in each version of the nodejs-setup cookbook.
 
-0.1.5
------
-- [huytran] - Add log info
-
-0.1.4
------
-- [huytran] - Fix bug of npm packages install
-
-0.1.3
------
-- [huytran] - Fix bug of npm packages install
-
-0.1.2
+0.1.8
 -----
 - [huytran] - Fix bug of npm packages install
 
