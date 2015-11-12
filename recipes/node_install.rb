@@ -1,10 +1,16 @@
 # version should be 0.10, 0.12, 4.x, 5.x
-source_url = node['nodejs-setup']['prefix']
+prefix = node['nodejs-setup']['prefix']
 version = node['nodejs-setup']['version']
-install_url = [source_url, version].join('')
+install_url = [prefix, version].join('')
 
 log 'Installing node'
-log source_url
+
+log 'prefix'
+
+log prefix
+
+log 'version'
+
 log version
 
 case node['platform_family']
