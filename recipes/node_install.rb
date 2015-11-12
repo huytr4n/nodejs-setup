@@ -1,9 +1,20 @@
+# select prefix by os
+case node['flatform_family']
+when 'debian'
+  log 'prefix with debian'
+  node['nodejs-setup']['prefix'] = 'https://deb.nodesource.com/setup_'
+when 'fedora', 'rhel'
+  log 'prefix with rhel'
+  node['nodejs-setup']['prefix'] = 'https://rpm.nodesource.com/setup_'
+else
+  log 'prefix with others'
+  node['nodejs-setup']['prefix'] = nil
+end
+
 # version should be 0.10, 0.12, 4.x, 5.x
 prefix = node['nodejs-setup']['prefix']
 version = node['nodejs-setup']['version']
 install_url = [prefix, version].join('')
-
-Chef::Log.info('Installing node #{prefix} : #{version}')
 
 case node['platform_family']
 when 'fedora', 'rhel'
