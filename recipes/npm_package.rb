@@ -1,7 +1,8 @@
+log 'install npm packages'
+
 # install npm packages
 if node['nodejs-setup'].key?('npm_packages')
   packages = node['nodejs-setup']['npm_packages']
-  log 'install npm packages'
 
   packages.each do |name|
     bash 'setup npm package' do
