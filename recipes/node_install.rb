@@ -3,7 +3,7 @@ version = node['nodejs-setup']['version']
 prefix = 'https://deb.nodesource.com/setup_'
 
 # select prefix by platform
-case node['flatform_family']
+case node['platform_family']
 when 'debian'
   log 'prefix with debian'
   prefix = 'https://deb.nodesource.com/setup_'
